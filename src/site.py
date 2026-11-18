@@ -68,6 +68,8 @@ def build_data():
                 "c": p.get("cv_cover"),
                 "s": p.get("source"),
                 "d": p.get("nearest_osm_m"),
+                "m": p.get("ms_area_m2"),
+                "u": p.get("uncovered_frac"),
                 "lat": round(shape(f["geometry"]).centroid.y, 6),
                 "lon": round(shape(f["geometry"]).centroid.x, 6),
             },
@@ -218,11 +220,16 @@ const loading = html => `<span style="color:#868e96">${html}…</span>`;
 function popup(p){
   const cls = {verified:'#c92a2a', probable:'#e8590c', unconfirmed:'#868e96'}[p.v] || '#555';
   const cv = p.c == null ? '–' : Number(p.c).toFixed(2);
+  const origin = p.s === 'cv'
+    ? '<div>found by the model only</div>'
+    : `<div>uncovered part of a ${Number(p.m).toFixed(0)} m² detection
+         (${Math.round(100*Number(p.u))} % of it is unmapped)</div>`;
+  const near = p.d == null ? '' :
+    (Number(p.d) <= 1.5 ? '<div>adjacent to a mapped building</div>'
+                        : `<div>${Number(p.d).toFixed(0)} m from the nearest mapped building</div>`);
   return `<div><span class="pill" style="background:${cls}">${p.v}</span>
-    <b>${Number(p.a).toFixed(0)} m²</b></div>
-    <div>source: ${p.s === 'cv' ? 'model only' : 'Microsoft layer'}</div>
-    <div>CV coverage: ${cv}</div>
-    <div>nearest mapped building: ${p.d == null ? '–' : Number(p.d).toFixed(0)+' m'}</div>
+    <b>${Number(p.a).toFixed(0)} m²</b></div>${origin}
+    <div>imagery coverage: ${cv}</div>${near}
     <div><a target="_blank" rel="noopener"
       href="https://www.openstreetmap.org/edit?editor=id#map=19/${p.lat}/${p.lon}">open in iD editor ↗</a></div>`;
 }
