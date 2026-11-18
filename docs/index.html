@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Unmapped buildings · San Miguelito, Panama City</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23c92a2a'/%3E%3Cpath d='M9 23V11l7-4 7 4v12h-5v-6h-4v6z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header>
+  <h1>Unmapped buildings — San Miguelito</h1>
+  <span class="meta" id="sub">loading…</span>
+  <nav><a class="on" href="index.html">Map</a><a href="about.html">Method &amp; data</a></nav>
+</header>
+<div id="map"></div>
+<aside id="panel">
+  <div class="kpis" id="kpis"></div>
+  <h2>Layers</h2>
+  <label class="row"><input type="checkbox" data-layer="verified" checked>
+    <span class="sw" style="background:var(--accent)"></span>verified <span class="cnt" data-c="verified"></span></label>
+  <label class="row"><input type="checkbox" data-layer="probable" checked>
+    <span class="sw" style="background:var(--warn)"></span>probable <span class="cnt" data-c="probable"></span></label>
+  <label class="row"><input type="checkbox" data-layer="unconfirmed">
+    <span class="sw" style="background:var(--grey)"></span>unconfirmed <span class="cnt" data-c="unconfirmed"></span></label>
+  <label class="row"><input type="checkbox" data-layer="osm">
+    <span class="sw" style="background:var(--osm)"></span>mapped OSM buildings</label>
+  <label class="row"><input type="checkbox" data-layer="grid">
+    <span class="sw" style="background:var(--violet);opacity:.5"></span>priority grid (400 m)</label>
+  <h2 style="margin-top:14px">Top cells</h2>
+  <div id="cells"></div>
+  <div class="note">Imagery © Esri, Maxar, Earthstar Geographics. OSM ©
+    <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL).
+    Detections: Microsoft Global Buildings (CDLA-Permissive-2.0) + HOTOSM DINOv3 model.
+    <a href="about.html">Method, licences, caveats →</a></div>
+</aside>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

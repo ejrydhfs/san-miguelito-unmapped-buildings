@@ -1,0 +1,21 @@
+# caches and virtualenv (re-downloadable)
+cache/
+.venv/
+*.pyc
+__pycache__/
+
+# intermediate layers that can be regenerated
+out/ms_buildings.geojson
+out/osm_buildings.geojson
+out/cv_all.geojson
+out/missing_buildings.geojson
+out/missing_buildings_district.geojson
+out/missing_verified.geojson
+out/missing_buildings.csv
+out/missing_buildings.osm
+out/osm_cv_control.geojson
+data/osm_buildings_raw.json
+
+# scratch screenshots
+out/*_check.png
+out/site_smoke.png

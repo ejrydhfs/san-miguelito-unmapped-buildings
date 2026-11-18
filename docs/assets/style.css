@@ -1,0 +1,35 @@
+
+:root{--bg:#fff;--fg:#111;--muted:#5b6470;--line:#e3e6ea;--accent:#c92a2a;
+      --warn:#e8590c;--grey:#868e96;--osm:#1c7ed6;--violet:#6741d9}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--fg)}
+#map{position:fixed;top:48px;left:0;right:0;bottom:0}
+header{position:fixed;top:0;left:0;right:0;height:48px;z-index:1100;background:#fff;
+  border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:0 16px}
+header h1{font-size:15px;margin:0;font-weight:650}
+header .meta{color:var(--muted);font-size:12px}
+header nav{margin-left:auto;display:flex;gap:14px;font-size:13px}
+header a{color:var(--muted);text-decoration:none}
+header a:hover,header a.on{color:var(--fg)}
+#panel{position:fixed;top:64px;left:16px;width:320px;max-height:calc(100vh - 96px);
+  overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;
+  z-index:1000;padding:14px;box-shadow:0 2px 14px #00000014}
+#panel h2{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:0 0 8px}
+.kpis{display:grid;grid-template-columns:1fr auto;gap:2px 8px;margin-bottom:14px;font-size:13px}
+.kpis b{font-variant-numeric:tabular-nums;font-weight:600}
+.kpis .big{font-size:20px}
+label.row{display:flex;align-items:center;gap:7px;margin:5px 0;cursor:pointer;font-size:13px}
+.sw{width:11px;height:11px;border-radius:2px;flex:0 0 auto}
+.cell{display:flex;justify-content:space-between;padding:3px 5px;border-radius:4px;cursor:pointer;font-variant-numeric:tabular-nums}
+.cell:hover{background:#f2f5ff}
+.note{color:var(--muted);font-size:11.5px;border-top:1px solid var(--line);padding-top:8px;margin-top:10px}
+.note a{color:#0b62c4}
+.leaflet-popup-content{font-size:12.5px;line-height:1.45}
+.pill{display:inline-block;padding:0 6px;border-radius:9px;color:#fff;font-size:11px;font-weight:600}
+main{margin:64px auto 40px;max-width:860px;padding:0 20px}
+main h2{margin-top:34px;border-bottom:1px solid var(--line);padding-bottom:6px;font-size:18px}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+code{background:#f4f6f8;padding:1px 4px;border-radius:3px;font-size:12.5px}
+@media(max-width:720px){#panel{width:auto;right:16px;max-height:52vh}main{margin-top:56px}}

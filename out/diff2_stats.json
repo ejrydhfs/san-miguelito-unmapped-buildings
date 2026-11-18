@@ -1,0 +1,15 @@
+{
+  "district": "San Miguelito, Panam\u00e1, Provincia de Panam\u00e1, Panam\u00e1",
+  "district_short": "San Miguelito, Panama City",
+  "osm_buildings": 12088,
+  "ml_buildings": 71060,
+  "osm_buildings_bbox": 22885,
+  "ml_buildings_bbox": 119743,
+  "candidates": 62709,
+  "by_source": {
+    "ms": 57106,
+    "cv": 5603
+  },
+  "area_m2": 11312409,
+  "median_area_m2": 127.6
+}

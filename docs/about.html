@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>Method &amp; data · San Miguelito building footprints</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23c92a2a'/%3E%3Cpath d='M9 23V11l7-4 7 4v12h-5v-6h-4v6z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header><h1>Unmapped buildings — San Miguelito</h1>
+<span class="meta">method, data, licences</span>
+<nav><a href="index.html">Map</a><a class="on" href="about.html">Method &amp; data</a></nav></header>
+<main>
+<h2>What this is</h2>
+<p>Building footprints detected by machine learning on imagery from
+<b>2025-08-08/11</b> (Esri World Imagery, 30 cm) that have no counterpart in
+OpenStreetMap, for the district of <b>San Miguelito, Panama City</b> (49.9 km², Panama City).
+62,709 candidates over ~11.3 km²; OSM currently
+maps 12,088 of the 71,060 buildings detected in the
+district (17%).</p>
+
+<h2>Pipeline</h2>
+<ol>
+<li><b>Boundary &amp; OSM</b> — district polygon from OSM relation 8389079 (Nominatim),
+building ways and multipolygon relations from the Overpass API.</li>
+<li><b>Detection layer</b> — Microsoft Global Buildings (2026-02-03 release) for the two
+Panama quadkeys. Recall against already-mapped OSM buildings:
+86.2%, median shape IoU 0.512.</li>
+<li><b>Difference</b> — UTM 17N, each footprint minus the union of OSM (and, for the
+second source, Microsoft) polygons buffered by 1.5 m; uncovered parts
+≥ 30 m² and ≥ 30% of the footprint become candidates
+(model-only blobs need ≥ 60 m²). This keeps half-mapped rows of houses
+instead of dropping them.</li>
+<li><b>Scene check</b> — a DINOv3 ViT-S/16 + UperNet building segmenter
+(<code>hotosm/dinov3s-buildings</code>, ONNX) is run over all
+4,576 z18 tiles of the district; blobs that neither dataset covers are added as
+<em>source: model</em> candidates, and the same masks score every candidate
+(<code>cv_cover</code> = share of the footprint within 1.8 m of a predicted building).</li>
+<li><b>Ranking</b> — candidates binned into 400 m cells and ordered by count.</li>
+</ol>
+
+<p>62,709 candidates come from the Microsoft layer
+(57,106) and 5,603 from the
+segmentation model alone (parts of a built-up block that neither OSM nor Microsoft
+covers).</p>
+
+<h2>Confidence</h2>
+<p><span class="pill" style="background:#c92a2a">verified</span> cv_cover ≥ 0.60 —
+a building is visible at that location. &nbsp;
+<span class="pill" style="background:#e8590c">probable</span> ≥ 0.30. &nbsp;
+<span class="pill" style="background:#868e96">unconfirmed</span> &lt; 0.30 — sheds,
+walls, patios, or the roof is hidden by trees. Calibration: 91 % of already-mapped
+OSM buildings score <em>verified</em> with the same metric.</p>
+
+<h2>By corregimiento</h2>
+<table><thead><tr><th>corregimiento</th><th class=n>OSM buildings</th>
+<th class=n>candidates</th><th class=n>verified</th></tr></thead>
+<tbody><tr><td>Rufina Alfaro</td><td class=n>2,749</td><td class=n>10,963</td><td class=n>10,299</td></tr>
+<tr><td>José Domingo Espinar</td><td class=n>1,073</td><td class=n>9,824</td><td class=n>9,255</td></tr>
+<tr><td>Belisario Porras</td><td class=n>338</td><td class=n>9,781</td><td class=n>8,665</td></tr>
+<tr><td>Belisario Frías</td><td class=n>121</td><td class=n>9,299</td><td class=n>8,572</td></tr>
+<tr><td>Omar Torrijos</td><td class=n>587</td><td class=n>8,081</td><td class=n>7,601</td></tr>
+<tr><td>Amelia Denis de Icaza</td><td class=n>2,539</td><td class=n>6,122</td><td class=n>5,462</td></tr>
+<tr><td>Arnulfo Arias</td><td class=n>2,706</td><td class=n>4,807</td><td class=n>4,315</td></tr>
+<tr><td>Mateo Iturralde</td><td class=n>48</td><td class=n>2,383</td><td class=n>2,165</td></tr>
+<tr><td>Victoriano Lorenzo</td><td class=n>1,930</td><td class=n>1,449</td><td class=n>1,191</td></tr></tbody></table>
+
+<h2>Data</h2>
+<ul>
+<li><a href="data/candidates_verified.json">candidates_verified.json</a>,
+<a href="data/candidates_probable.json">candidates_probable.json</a>,
+<a href="data/candidates_unconfirmed.json">candidates_unconfirmed.json</a> — GeoJSON, WGS84</li>
+<li><a href="data/grid.json">grid.json</a> — 400 m priority cells</li>
+<li><a href="data/osm.json">osm.json</a> — mapped OSM buildings (context)</li>
+<li><a href="data/corregimientos.json">corregimientos.json</a> — sub-district boundaries</li>
+<li><a href="data/stats.json">stats.json</a> — headline numbers</li>
+</ul>
+<p>Pipeline source and the JOSM reference layer are in the
+<a href="https://github.com/ejrydhfs/san-miguelito-unmapped-buildings">repository</a>.</p>
+
+<h2>Do not bulk-import</h2>
+<p>Microsoft's footprints are licensed <b>CDLA-Permissive-2.0</b>, not ODbL, and contain
+false positives. Use this map as a <em>reference</em>: open the same location in iD and
+trace the building from the Esri imagery. That is also why <em>verified</em> means
+"a building is here", not "this polygon is the building".</p>
+
+<h2>Caveats</h2>
+<ul>
+<li>The segmenter is trained on HOT/OpenAerialMap very-high-resolution tiles; at
+0.59 m/px it merges row-houses, so coverage is a screen, not a survey.</li>
+<li>Footprints mapped with a 1–2 m offset are treated as mapped (buffer), by design.</li>
+<li>Imagery is from August 2025; anything built later is absent.</li>
+<li>Small structures below 35 m² uncovered area are not reported.</li>
+</ul>
+
+<h2>Licences</h2>
+<ul>
+<li>Imagery: Esri World Imagery (Maxar/Vantor, Earthstar Geographics) — attribution required, not redistributed here.</li>
+<li>OSM data: © OpenStreetMap contributors, ODbL.</li>
+<li>Microsoft Global Buildings: CDLA-Permissive-2.0.</li>
+<li>Model <code>hotosm/dinov3s-buildings</code>: CC-BY-4.0 (DINOv3 backbone under its own licence).</li>
+</ul>
+</main></body></html>

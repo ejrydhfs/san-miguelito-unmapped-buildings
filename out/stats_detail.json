@@ -1,0 +1,84 @@
+{
+ "ml_layer_recall_on_osm_pct": 86.2,
+ "ml_vs_osm_median_iou": 0.512,
+ "ml_vs_osm_iou_p25_p75": [
+  0.313,
+  0.682
+ ],
+ "osm_buildings_tested": 22890,
+ "ml_in_bbox": 119568,
+ "corregimientos": [
+  {
+   "corregimiento": "Rufina Alfaro",
+   "km2": 12.78,
+   "osm_buildings": 2749,
+   "ml_buildings": 13120,
+   "unmapped": 10963,
+   "unmapped_verified": 10299
+  },
+  {
+   "corregimiento": "Jos\u00e9 Domingo Espinar",
+   "km2": 7.17,
+   "osm_buildings": 1073,
+   "ml_buildings": 10283,
+   "unmapped": 9824,
+   "unmapped_verified": 9255
+  },
+  {
+   "corregimiento": "Belisario Porras",
+   "km2": 4.01,
+   "osm_buildings": 338,
+   "ml_buildings": 9639,
+   "unmapped": 9781,
+   "unmapped_verified": 8665
+  },
+  {
+   "corregimiento": "Belisario Fr\u00edas",
+   "km2": 4.8,
+   "osm_buildings": 121,
+   "ml_buildings": 9687,
+   "unmapped": 9299,
+   "unmapped_verified": 8572
+  },
+  {
+   "corregimiento": "Omar Torrijos",
+   "km2": 10.97,
+   "osm_buildings": 587,
+   "ml_buildings": 8380,
+   "unmapped": 8081,
+   "unmapped_verified": 7601
+  },
+  {
+   "corregimiento": "Amelia Denis de Icaza",
+   "km2": 3.77,
+   "osm_buildings": 2539,
+   "ml_buildings": 7421,
+   "unmapped": 6122,
+   "unmapped_verified": 5462
+  },
+  {
+   "corregimiento": "Arnulfo Arias",
+   "km2": 3.39,
+   "osm_buildings": 2706,
+   "ml_buildings": 7091,
+   "unmapped": 4807,
+   "unmapped_verified": 4315
+  },
+  {
+   "corregimiento": "Mateo Iturralde",
+   "km2": 1.0,
+   "osm_buildings": 48,
+   "ml_buildings": 2294,
+   "unmapped": 2383,
+   "unmapped_verified": 2165
+  },
+  {
+   "corregimiento": "Victoriano Lorenzo",
+   "km2": 2.01,
+   "osm_buildings": 1930,
+   "ml_buildings": 3149,
+   "unmapped": 1449,
+   "unmapped_verified": 1191
+  }
+ ]
+}

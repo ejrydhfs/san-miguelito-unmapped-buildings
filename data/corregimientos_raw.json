@@ -1,0 +1,151 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-27T10:19:51Z",
+    "timestamp_areas_base": "2026-10-27T08:21:27Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "relation",
+  "id": 8389112,
+  "center": {
+    "lat": 9.0322993,
+    "lon": -79.5046732
+  },
+  "tags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "Victoriano Lorenzo",
+    "type": "boundary",
+    "wikidata": "Q21055957"
+  }
+},
+{
+  "type": "relation",
+  "id": 8389284,
+  "center": {
+    "lat": 9.0339610,
+    "lon": -79.4962557
+  },
+  "tags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "Mateo Iturralde",
+    "type": "boundary",
+    "wikidata": "Q21055955"
+  }
+},
+{
+  "type": "relation",
+  "id": 10583752,
+  "center": {
+    "lat": 9.0771093,
+    "lon": -79.4900047
+  },
+  "tags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "Belisario Frías",
+    "type": "boundary",
+    "wikidata": "Q20973490"
+  }
+},
+{
+  "type": "relation",
+  "id": 10583798,
+  "center": {
+    "lat": 9.0624917,
+    "lon": -79.5263672
+  },
+  "tags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "Omar Torrijos",
+    "official_name": "Corregimiento Omar Torrijos",
+    "type": "boundary",
+    "wikidata": "Q21006787"
+  }
+},
+{
+  "type": "relation",
+  "id": 11482516,
+  "center": {
+    "lat": 9.0404286,
+    "lon": -79.5159075
+  },
+  "tags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "Amelia Denis de Icaza",
+    "official_name": "Corregimiento Amelia Denis de Icaza",
+    "type": "boundary"
+  }
+},
+{
+  "type": "relation",
+  "id": 11482888,
+  "center": {
+    "lat": 9.0539459,
+    "lon": -79.4984303
+  },
+  "tags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "Belisario Porras",
+    "official_name": "Corregimiento Belisario Porras",
+    "type": "boundary"
+  }
+},
+{
+  "type": "relation",
+  "id": 11482967,
+  "center": {
+    "lat": 9.0468117,
+    "lon": -79.4793343
+  },
+  "tags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "José Domingo Espinar",
+    "official_name": "Corregimiento José Domingo Espinar",
+    "type": "boundary"
+  }
+},
+{
+  "type": "relation",
+  "id": 11483078,
+  "center": {
+    "lat": 9.0666077,
+    "lon": -79.4817828
+  },
+  "tags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "Arnulfo Arias",
+    "official_name": "Corregimiento Arnulfo Arias",
+    "type": "boundary",
+    "wikidata": "Q21055936"
+  }
+},
+{
+  "type": "relation",
+  "id": 11483091,
+  "center": {
+    "lat": 9.0692273,
+    "lon": -79.4599482
+  },
+  "tags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "Rufina Alfaro",
+    "official_name": "Corregimiento Rufina Alfaro",
+    "type": "boundary",
+    "wikidata": "Q6113506"
+  }
+}
+
+  ]
+}
